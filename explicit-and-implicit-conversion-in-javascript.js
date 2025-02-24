@@ -19,14 +19,28 @@ Use console.log() to clearly show the before-and-after type conversions.
 */
 
 
-let result = "5" - 2;
-console.log("The result is: " + result);
+let result = Number("5") - 2; // This worked but was implicit, and explicit would be preferable
+console.log("The result is: " + result); 
 
-let isValid = Boolean("false");
+let isValid = Boolean(""); // Only an EMPTY string converts to Boolean false
 if (isValid) {
     console.log("This is valid!");
 }
 
 let age = "25";
-let totalAge = age + 5;
+let totalAge = Number(age) + 5; // Used Number() to prevent string concatenation
 console.log("Total Age: " + totalAge);
+
+// Implicit example
+let num = 42;
+console.log(typeof num);
+console.log(`The answer to the Ultimate Question of Life, the Universe, and Everything is ${num}.`);
+// Template literals automatically convert numbers to strings for values in placeholders
+
+// Explicit example
+let measurement = "10560 feet";
+let feetPerMile = 5280;
+console.log(typeof measurement);
+let miles = parseInt(measurement) / feetPerMile; // returns NaN without parseInt()
+// ...because JS tries (and fails) to implicitly convert measurement to a number
+console.log(miles);
