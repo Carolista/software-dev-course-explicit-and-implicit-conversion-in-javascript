@@ -31,13 +31,32 @@ let age = "25";
 let totalAge = Number(age) + 5; // Used Number() to prevent string concatenation
 console.log("Total Age: " + totalAge);
 
-// Implicit example
+// IMPLICIT EXAMPLES
+
+// Implicit Example 1
 let num = 42;
 console.log(typeof num);
 console.log(`The answer to the Ultimate Question of Life, the Universe, and Everything is ${num}.`);
 // Template literals automatically convert numbers to strings for values in placeholders
 
-// Explicit example
+// Implicit Example 2 - Loose equality
+console.log(numC == 4); // Automatically converts strings to number before checking for equality
+
+
+// EXPLICIT EXAMPLES
+
+// Explicit Example 1 - Computing numbers stored as strings
+let numA = 5;
+let numB = "3";
+
+console.log(Number(numA) + Number(numB));
+// The expected answer is 8 but without explicit conversion you get "53"
+
+// Explicit Example 2 - Strict Equality
+let numC = "4";
+console.log(Number(numC) === 4); // Must both be numbers to evaluate to the Boolean true
+
+// Explicit Example 3 - Parsing a number from a string with non-numeric characters
 let measurement = "10560 feet";
 let feetPerMile = 5280;
 console.log(typeof measurement);
